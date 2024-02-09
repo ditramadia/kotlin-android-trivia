@@ -5,21 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.example.androidtrivia.databinding.FragmentTitleBinding
 
 class TitleFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_title, container, false)
-        val playButton = view.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.playButton)
-        playButton.setOnClickListener { view: View ->
-            Navigation.findNavController(view).navigate(R.id.action_titleFragment_to_gameFragment)
-        }
+    ): View {
+        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container, false)
+        binding.playButton.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
+        )
 
-        return view
+        return binding.root
     }
 }

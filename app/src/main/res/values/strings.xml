@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Android Trivia</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="play">Play</string>
+    <string name="title_android_trivia_question">Android Trivia (%1$d/%2$d)</string>
+
+    <string name="alt_android_trivia_logo">Android Trivia logo</string>
+    <string name="alt_confused_android">Confused android</string>
+
 </resources>
