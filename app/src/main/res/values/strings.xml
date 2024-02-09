@@ -4,6 +4,7 @@
     <string name="title_android_trivia_question">Android Trivia (%1$d/%2$d)</string>
     <string name="next_match">Next match</string>
     <string name="try_again">Try again</string>
+    <string name="about">About</string>
     <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.\n\nConsider modifying the questions and graphics to make this game your own!</string>
 
     <string name="alt_android_trivia_logo">Android Trivia logo</string>
