@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.androidtrivia.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
@@ -70,12 +71,13 @@ class GameFragment : Fragment() {
                     if (questionIndex < numQuestions) {
                         currentQuestion = questions[questionIndex]
                         setQuestion()
+                        binding.firstRadioButton.isChecked = true
                         binding.invalidateAll()
                     } else {
-                        // We won
+                        view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
                     }
                 } else {
-                    // Game over
+                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
                 }
             }
         }
