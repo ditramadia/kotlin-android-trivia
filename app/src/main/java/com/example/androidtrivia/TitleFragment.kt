@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 
 class TitleFragment : Fragment() {
 
@@ -13,6 +14,12 @@ class TitleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_title, container, false)
+        val view = inflater.inflate(R.layout.fragment_title, container, false)
+        val playButton = view.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.playButton)
+        playButton.setOnClickListener { view: View ->
+            Navigation.findNavController(view).navigate(R.id.action_titleFragment_to_gameFragment)
+        }
+
+        return view
     }
 }
