@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -21,6 +22,8 @@ class TitleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container, false)
+        (activity as AppCompatActivity).supportActionBar?.title = "Android Trivia"
+
         binding.playButton.setOnClickListener { view: View ->
             view.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
         }

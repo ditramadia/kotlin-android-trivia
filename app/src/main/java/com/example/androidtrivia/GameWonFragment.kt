@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -21,6 +22,7 @@ class GameWonFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = DataBindingUtil.inflate<FragmentGameWonBinding>(inflater, R.layout.fragment_game_won, container, false)
+        (activity as AppCompatActivity).supportActionBar?.title = "Android Trivia"
 
         binding.nextMatchButton.setOnClickListener { view: View ->
             view.findNavController().navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment())

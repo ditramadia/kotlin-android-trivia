@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
+    <color name="darkGreen">#00574B</color>
     <color name="androidGreen">#6AB343</color>
     <color name="gameOver">#FF5252</color>
 </resources>
