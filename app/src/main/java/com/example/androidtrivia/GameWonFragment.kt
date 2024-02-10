@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.androidtrivia.databinding.FragmentGameWonBinding
@@ -36,14 +37,20 @@ class GameWonFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
+
+        // Check if sharing intent is available
+        if (null == getShareIntent().resolveActivity(requireActivity().packageManager)) {
+            menu.findItem(R.id.share)?.setVisible(false)
+        }
     }
 
     private fun getShareIntent() : Intent {
         arguments?.let { argsBundle ->
             val args = GameWonFragmentArgs.fromBundle(argsBundle)
-            val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.numCorrect, args.numQuestion))
-            return shareIntent
+            return ShareCompat.IntentBuilder.from(requireActivity())
+                .setText(getString(R.string.share_success_text, args.numCorrect, args.numQuestion))
+                .setType("text/plain")
+                .intent
         }
         return Intent()
     }
